@@ -1,0 +1,17 @@
+= Python PID file lock
+CZ.NIC z.s.p.o. <packaging@turris.cz>
+v0.0, 2022-01-11
+:icons:
+
+This is a small library implementing PID file locks. Those are files with
+process identifier stored inside and locks protecting their consistency and
+access. The usage of such file ensures that only one instance of some program is
+running at the same time. It also allows identification of that instance thanks
+to the PID file.
+
+The implementation supports access to lock by multiple users. The only
+requirement is write permission on the directory where PID lock file is created.
+It also supports automatic recovery after fatal crash of lock holder.
+
+The code uses Unix flocks and thus currently only supported platform is
+compatible Unix.
